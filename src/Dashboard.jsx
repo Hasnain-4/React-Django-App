@@ -16,50 +16,63 @@ class Dashboard extends Component {
   }
  
   componentDidMount() {
+    this.getData()
+  }
+  getData(){
     fetch(API)
       .then(response => response.json())
       .then(data => this.setState({ hits: data.data }));
   }
  
   deleteItem(id){
-    if(window.confirm('Are You Sure?')){
+  
       fetch(API + id,{
         method: 'DELETE',
-        header: {'Accept':'application/json',
-            'Content-Type':'application/json'
-          }
+        // header: {'Accept':'application/json',
+        //     'Content-Type':'application/json'
+        //   }
+      }).then((resp)=>{
+        alert('Deleted')
+        this.getData()      // Function call for deleting data without page refresh
       })
-    }
+    
   }
 
   render() {
     const { hits } = this.state;
     const baseUrl = 'http://127.0.0.1:8000';
     return (
-      <div>
-     
+      <div style={{'backgroundColor':'black'}}>
+        <div className="container-fluid row">
+      <div className="col-8 ml-3 mr-3">
+
         {hits.map(hit =>  
         <>        
-        <div>
+            <div className="card mb-4">
 
-            <h5>
-            {hit.title} 
-            </h5>
-        
-        <h2>{hit.desc}</h2>
-        <p>{hit.time}</p>
-        <img src={(`${baseUrl}${hit.image}`)} alt="img"/>       {/* Display image with baseurl */}
-        
-        {/* <img src={hit.avatar} alt=""/> */}
-        <br/>
-        <br/><hr/>
+                <h5>
+                {hit.title} 
+                </h5>
+            
+            <h2>{hit.desc}</h2>
+            <p>{hit.time}</p>
+            <img src={(`${baseUrl}${hit.image}`)} alt="img"/>       {/* Display image with baseurl */}
+            
+            {/* <img src={hit.avatar} alt=""/> */}
+            <br/>
+            <br/><hr/>
 
-        <Button type="submit" variant="outline-danger" onClick={() => this.deleteItem(hit.id)}>Delete</Button>
+            <Button variant="outline-danger" onClick={() => this.deleteItem(hit.id)}>Delete</Button>
 
-        </div>
+            </div>
         </>
         )}
+        
+        </div>
+        <div className="col-3 ">
         <Forms/>
+        </div>
+        </div>
         </div>
      
     );

@@ -71,9 +71,37 @@ nav{
 }
 .imgperson:hover{
   box-shadow: 0 0 10px rgb(180, 79, 12);
+  animation: shake 0.5s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+  
+}
+.examimg{
+  margin: 2rem 0;
+}
+.examimg:hover{
+  box-shadow: 0 0 10px rgb(180, 79, 12);
+  animation: shake 0.5s;
+  
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
   
 }
 
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
 .contacticons{
   display: inline-flex;
   list-style: none;
@@ -161,6 +189,16 @@ nav{
   display: inline-block;
   background-color: rgb(180, 117, 21);
 }
+
+.line2{
+  display: inline;
+  width: 5rem;
+  margin: auto;
+  height: 2px;
+  color: white;
+  display: inline-block;
+  background-color: rgb(180, 117, 21);
+}
 .line1{
   width: 5rem;
   height: 2px;
@@ -184,3 +222,59 @@ nav{
   text-align: center;
   font-size: 4rem;
 }
+.cardform{
+  /* overflow: hidden; */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  border: 1px solid rgb(238, 228, 228);
+  padding: 1rem;
+  background-color: rgb(16 37 32);
+  color: rgb(235, 227, 227);
+  height: 20rem;
+}
+.examtext{
+  background-color: black;
+  color: white;
+  padding: 4rem;
+  
+}
+/* .examheading{
+  margin-top: 2rem ;
+} */
+.examhr{
+  width: 7rem;
+  height: 2px;
+  color: white;
+  display: inline-block;
+  background-color: rgb(180, 117, 21);
+
+}
+
+.examhr1{
+  width: 14rem;
+  height: 2px;
+  color: white;
+  display: block;
+  background-color: rgb(180, 117, 21);
+}
+
+
+.visitexam{
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #0c2f7a;
+  border-radius: 50%;
+  /* font-size: 4rem; */
+  background-color: black;
+  color: rgb(216, 141, 2);
+  
+}
+
+.visitexam:hover{
+  background-color: rgb(216, 141, 2);
+  color: rgb(0, 0, 0);
+}
+/* .github{
+  
+} */

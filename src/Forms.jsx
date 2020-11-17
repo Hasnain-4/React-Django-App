@@ -40,23 +40,23 @@
 //     const {title,desc,image} = this.state
 //     return (
 //         <div>
-//             <Form onSubmit={this.submitHandler}>
+            // <Form onSubmit={this.submitHandler}>
                
-//                 <Form.Group controlId="formGroupEmail">
-//                     <Form.Label>Enter Title</Form.Label>
-//                     <Form.Control type="text" name="title" required placeholder="Enter Title" value={title} onChange={this.changeHandler}/>
-//                 </Form.Group>
-//                 <Form.Group controlId="formGroupPassword">
-//                     <Form.Label>Enter Description</Form.Label>
-//                     <Form.Control type="text" name="desc" required placeholder="Enter Description" value={desc} onChange={this.changeHandler}/>
-//                 </Form.Group>
+            //     <Form.Group controlId="formGroupEmail">
+            //         <Form.Label>Enter Title</Form.Label>
+            //         <Form.Control type="text" name="title" required placeholder="Enter Title" value={title} onChange={this.changeHandler}/>
+            //     </Form.Group>
+            //     <Form.Group controlId="formGroupPassword">
+            //         <Form.Label>Enter Description</Form.Label>
+            //         <Form.Control type="text" name="desc" required placeholder="Enter Description" value={desc} onChange={this.changeHandler}/>
+            //     </Form.Group>
                 
-//                 <input type="file"
-//                    name="image"
-//                    accept="image/png, image/jpeg" value={image} onChange={this.handleImageChange} />
+            //     <input type="file"
+            //        name="image"
+            //        accept="image/png, image/jpeg" value={image} onChange={this.handleImageChange} />
 
-//                 <Button type="submit" variant="outline-info float-right">Submit</Button>
-//             </Form>
+            //     <Button type="submit" variant="outline-info float-right">Submit</Button>
+            // </Form>
               
 //         </div>
 //     )
@@ -105,29 +105,35 @@ class Forms extends Component {
     })
         .then(res => {
           console.log(res.data);
+          window.location.reload(false);        // For Page Refresh
         })
         .catch(err => console.log(err))
   };
 
   render() {
     return (
-      <div className="">
-        <form onSubmit={this.handleSubmit}>
-          <p>
-            <input type="text" placeholder='Title' name="title" id='title' value={this.state.title} onChange={this.handleChange} required/>
-          </p>
-          <p>
-            <input type="text" placeholder='Description' name="desc" id='desc' value={this.state.desc} onChange={this.handleChange} required/>
-
-          </p>
-          <p>
-            <input type="file"
-                   id="image"
-                   accept="image/png, image/jpeg" name="image"  onChange={this.handleImageChange} required/>
-          </p>
-          <input type="submit"/>
-        </form>
-      </div>
+      <div className="cardform">
+        <h5 className="text-center">Enter Details</h5>
+        <hr className="line2"/>
+            <Form onSubmit={this.handleSubmit}>
+               
+               <Form.Group controlId="formGroupEmail">
+                   <Form.Label>Enter Title</Form.Label>
+                   <Form.Control type="text" name="title" required placeholder="Enter Title" value={this.state.title} onChange={this.handleChange}/>
+               </Form.Group>
+               <Form.Group controlId="formGroupPassword">
+                   <Form.Label>Enter Description</Form.Label>
+                   <Form.Control type="text" name="desc" required placeholder="Enter Description" value={this.state.desc}  onChange={this.handleChange}/>
+               </Form.Group>
+               
+               <input type="file"
+                  name="image"
+                  accept="image/png, image/jpeg" onChange={this.handleImageChange} /> <br/><br/>
+              
+               <Button type="submit" variant="info float-right">Submit</Button>
+           </Form>
+      
+        </div>
     );
   }
 }
