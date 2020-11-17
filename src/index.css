@@ -67,7 +67,7 @@ nav{
   margin-right: 3rem;
   width: 500px;
   opacity: 1;
-  margin-top: -20rem;
+  margin-top: -18.2rem;
 }
 .imgperson:hover{
   box-shadow: 0 0 10px rgb(180, 79, 12);
@@ -175,4 +175,12 @@ nav{
 }
 .para{
   display: inline-block;
+}
+.what{
+  background-color: #d4d3d3;
+  color: rgb(92, 26, 26);
+  padding: 5rem;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: 4rem;
 }

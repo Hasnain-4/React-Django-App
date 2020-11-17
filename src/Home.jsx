@@ -23,7 +23,12 @@ const Home = () => {
                 <img className="imgperson" src={Man} alt=""/>
             </div>
 
+                <h1 className="what">My Top Projects</h1>
+                <p>Yaha par Git ka link dalenge</p>
+                
             <div className="container-fluid bg-dark cards">
+
+                    
                 <div class="flip-card">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
